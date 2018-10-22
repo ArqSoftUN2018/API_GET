@@ -62,7 +62,7 @@ const mergedTypeDefs = mergeSchemas(
 //		statisticsQueries
 	],
 	[
-		usersMutations,
+//		usersMutations,
 		boardsMutations,
 		listsMutations,
 		tasksMutations,
