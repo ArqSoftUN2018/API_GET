@@ -5,11 +5,11 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeSchemas } from './utilities';
 
 
-import {
-	usersMutations,
-	usersQueries,
-	usersTypeDef
-} from './users/typeDefs';
+//import {
+//	usersMutations,
+//	usersQueries,
+//	usersTypeDef
+//} from './users/typeDefs';
 
 import {
 	boardsMutations,
@@ -30,11 +30,11 @@ import {
 	tasksTypeDef
 } from './tasks/typeDefs';
 
-import {
-	statisticsMutations,
-	statisticsQueries,
-	statisticsTypeDef
-} from './statistics/typeDefs';
+//import {
+//	statisticsMutations,
+//	statisticsQueries,
+//	statisticsTypeDef
+//} from './statistics/typeDefs';
 
 
 
@@ -48,25 +48,25 @@ import statisticsResolvers from './statistics/resolvers';
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		usersTypeDef,
+//		usersTypeDef,
 		boardsTypeDef,
 		listsTypeDef,
 		tasksTypeDef,
-		statisticsTypeDef,
+//		statisticsTypeDef,
 	],
 	[
-		usersQueries,
+//		usersQueries,
 		boardsQueries,
 		listsQueries,
 		tasksQueries,
-		statisticsQueries
+//		statisticsQueries
 	],
 	[
 		usersMutations,
 		boardsMutations,
 		listsMutations,
 		tasksMutations,
-		statisticsMutations
+//		statisticsMutations
 	]
 );
 
@@ -75,10 +75,10 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		usersResolvers,
+//		usersResolvers,
 		boardsResolvers,
 		listsResolvers,
 		tasksResolvers,
-		statisticsResolvers,
+//		statisticsResolvers,
 	)
 });
