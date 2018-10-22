@@ -5,19 +5,41 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		allUsers: (_) =>
-			getRequest(URL, ''),
-		userByCode: (_, { code }) =>
-			generalRequest(`${URL}/${code}`, 'GET'),
+		validateToken: (_, { headers }) => {
+			return new Promise((resolve, reject) => {
+				generalRequest(`${URL}/validate_token`, 'GET', {}, true, {
+					client: headers.client,
+					uid: headers.uid,
+					access_token: headers.token
+				}).then((response) => {
+					let user = response.body.data
+					user['token'] = response.headers['access-token']
+					user['type'] = response.headers['token-type']
+					user['client'] = response.headers['client']
+					delete user['provider']
+					delete user['uid']
+					delete user['allow_password_change']
+					resolve(user)
+				})
+			})
+		}
 	},
+
 	Mutation: {
-		createUser: (_, { user }) =>
-			generalRequest(`${URL}`, 'POST', user),
-		updateUser: (_, { code, user }) =>
-			generalRequest(`${URL}/${code}`, 'PUT', user),
-		deleteUser: (_, { code }) =>
-			generalRequest(`${URL}/${code}`, 'DELETE')
+		createUser: (_, { session }) => {
+			return new Promise((resolve, reject)=>{
+				generalRequest(`${URL}/sign_in`, 'POST', session, true).then(
+					(response) => {
+						console.log("Server response => ", response);
+						let user = response.body.data
+						user['token'] = response.headers['access-token']
+						user['uid'] = response.headers['uid']
+						user['type'] = response.headers['token-type']
+						user['client'] = response.headers['client']
+						resolve(user);
+					}
+				)
+			})
+		}
 	}
 };
-
-export default resolvers;
