@@ -1,20 +1,20 @@
 export const boardsTypeDef = `
 type Board {
-    code: Long!
+    code: Int!
     name: String!
     archived: Boolean!
     description: String!
     created_at: Date!
     updated_at: Date!
-    owner_code: Long!
-    group: [Long]!
+    owner_code: Int!
+    group: [Int]!
 }
 input BoardInput {
     name: String!
     archived: Boolean!
     description: String!
-    group: [Long]!
-    owner_code: Long!
+    group: [Int]!
+    owner_code: Int!
 }`;
 
 export const boardsQueries = `
