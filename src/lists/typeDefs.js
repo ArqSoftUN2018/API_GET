@@ -1,11 +1,14 @@
 export const listsTypeDef = `
+
+scalar String
+
 type List {
     code: Int!
     name: String!
     archived: Boolean!
     description: String!
-    created_at: Date!
-    updated_at: Date!
+    created_at: String!
+    updated_at: String!
     board_code: Int!
 
 }
