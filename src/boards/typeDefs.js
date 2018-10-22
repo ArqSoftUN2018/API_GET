@@ -7,7 +7,7 @@ type Board {
     created_at: String!
     updated_at: String!
     owner_code: Int!
-    group: [Int]!
+    group: [String]!
 }
 input BoardInput {
     name: String!
