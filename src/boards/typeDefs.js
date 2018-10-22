@@ -1,6 +1,6 @@
 export const boardsTypeDef = `
 type Board {
-    code: Int!
+    code: String!
     name: String!
     archived: Boolean!
     description: String!
@@ -19,11 +19,11 @@ input BoardInput {
 
 export const boardsQueries = `
     allBoards: [Board]!
-    boardByCode(code: Int!): Board!
+    boardByCode(code: String!): Board!
 `;
 
 export const boardsMutations = `
     createBoard(board: BoardInput!): Board!
-    deleteBoard(code: Int!): Int
-    updateBoard(code: Int!, board: BoardInput!): Board!
+    deleteBoard(code: String!): String
+    updateBoard(code: String!, board: BoardInput!): Board!
 `;
