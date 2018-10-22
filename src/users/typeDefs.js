@@ -1,4 +1,4 @@
-export const sessionsTypeDef = `
+export const usersTypeDef = `
 type User {
     id: Int!
     email: String!
@@ -7,7 +7,7 @@ type User {
     username: String!
 }
 
-input SessionInput {
+input userInput {
     email: String!
     password: String!
 }
@@ -16,7 +16,7 @@ input Headers {
     client: String!
     uid: String!
 }
-type SessionData {
+type userData {
     id: Int!
     email: String!
     name: String!
@@ -28,10 +28,10 @@ type SessionData {
 }
 `;
 
-export const sessionQueries = `
-    validateToken(headers: Headers!): SessionData!
+export const usersQueries = `
+    validateToken(headers: Headers!): userData!
 `;
 
-export const sessionsMutations = `
-    createSession(session: SessionInput!): SessionData!
+export const usersMutations = `
+    createuser(user: userInput!): userData!
 `;
