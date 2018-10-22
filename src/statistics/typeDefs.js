@@ -1,8 +1,11 @@
 export const statisticsTypeDef = `
 type Statistic {
+    code: Int!
+    name: String!
 }
 
 input StatisticInput {
+    name: String!
 }`;
 
 export const statisticsQueries = `
