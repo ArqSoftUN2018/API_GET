@@ -6,15 +6,15 @@ type Board {
     description: String!
     created_at: String!
     updated_at: String!
-    owner_code: Int!
+    owner_code: String!
     group: [String]!
 }
 input BoardInput {
     name: String!
     archived: Boolean!
     description: String!
-    group: [Int]!
-    owner_code: Int!
+    group: [String]!
+    owner_code: String!
 }`;
 
 export const boardsQueries = `
