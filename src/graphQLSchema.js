@@ -9,7 +9,7 @@ import {
 	usersMutations,
 	usersQueries,
 	usersTypeDef
-} from './tasks/typeDefs';
+} from './users/typeDefs';
 
 import {
 	boardsMutations,
@@ -38,7 +38,7 @@ import {
 
 
 
-import usersResolvers from './tasks/resolvers';
+import usersResolvers from './users/resolvers';
 import boardsResolvers from './boards/resolvers';
 import listsResolvers from './lists/resolvers';
 import tasksResolvers from './tasks/resolvers';
