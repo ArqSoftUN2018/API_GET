@@ -58,7 +58,6 @@ const mergedTypeDefs = mergeSchemas(
 		usersQueries,
 		boardsQueries,
 		listsQueries,
-		sessionQueries,
 		tasksQueries,
 		statisticsQueries
 	],
