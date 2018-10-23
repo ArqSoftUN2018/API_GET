@@ -1,25 +1,29 @@
 export const boardsTypeDef = `
+
+scalar Date
+
 type Board {
-    code: String!
-    name: String!
-    archived: Boolean!
-    description: String!
-    created_at: String!
-    updated_at: String!
-    owner_code: String!
-    group: [String]!
+    board_id: ID
+    name: String
+    description: String
+    group: [ID]
+    user_id: ID
+    archived: Boolean
+    create_at: Date
+    update_at: Date
 }
+
 input BoardInput {
     name: String!
-    archived: Boolean!
     description: String!
-    group: [String]!
-    owner_code: String!
+    archived : Boolean | false
+    group: [ID]!
+    user_id: ID!
 }`;
 
 export const boardsQueries = `
     allBoards: [Board]!
-    boardByCode(code: String!): Board!
+    boardByCode(id: ID!): Board!
 `;
 
 export const boardsMutations = `
