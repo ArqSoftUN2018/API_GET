@@ -17,7 +17,7 @@ input BoardInput {
     name: String!
     description: String!
     archived : Boolean | false
-    group: [ID]!
+    group: [ID!]
     user_id: ID!
 }`;
 
@@ -28,6 +28,6 @@ export const boardsQueries = `
 
 export const boardsMutations = `
     createBoard(board: BoardInput!): Board!
-    deleteBoard(code: String!): String
+    deleteBoard(code: String!): String!
     updateBoard(code: String!, board: BoardInput!): Board!
 `;
