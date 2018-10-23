@@ -21,4 +21,4 @@ services:
       STATISTICS_PORT: '3004'
       STATISTICS_ENTRY: 'statistics-ms/resources/statistics'
     ports:
-      - 5001:5000
+      - 5002:5002
