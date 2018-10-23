@@ -1,6 +1,7 @@
 import { generalRequest, getRequest } from '../utilities';
+import { url, port, entryPoint } from './server';
 
-const URL = `http://35.231.75.77:3002/lists-ms/resources/lists`;
+const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
@@ -18,6 +19,5 @@ const resolvers = {
 			generalRequest(`${URL}/${code}`, 'DELETE')
 	}
 };
-
 
 export default resolvers;
