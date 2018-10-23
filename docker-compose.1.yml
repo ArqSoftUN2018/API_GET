@@ -1,7 +1,7 @@
 version: '2'
 services:
   test:
-    image: bsdiaza/test
+    build: .
     environment:
       PORT: '5000'
       SHOW_URLS: 'true'
