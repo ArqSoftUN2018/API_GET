@@ -12,6 +12,9 @@ import { formatErr } from './utilities';
 const app = new Koa();
 const router = new KoaRouter();
 const PORT = process.env.PORT || 5000;
+const url = process.env.LISTS_URL
+const port = process.env.LISTS_PORT
+const entryPoint = process.env.LISTS_ENTRY
 
 app.use(koaLogger());
 app.use(koaCors());
@@ -42,4 +45,5 @@ router.get('/graphiql', graphiqlKoa({ endpointURL: '/graphql' }));
 app.use(router.routes());
 app.use(router.allowedMethods());
 // eslint-disable-next-line
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {const URL = `http://${url}:${port}/${entryPoint}`;
+console.log(URL)});
