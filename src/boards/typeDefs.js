@@ -3,12 +3,12 @@ export const boardsTypeDef = `
 scalar Date
 
 type Board {
-    board_id: ID
-    name: String
+    board_id: ID !
+    name: String !
     description: String
     group: [ID]
-    user_id: ID
-    archived: Boolean = false
+    user_id: ID !
+    archived: Boolean!  @default(value: 0)
     create_at: Date
     update_at: Date
 }
