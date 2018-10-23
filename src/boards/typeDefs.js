@@ -28,6 +28,6 @@ export const boardsQueries = `
 
 export const boardsMutations = `
     createBoard(board: BoardInput!): Board!
-    deleteBoard(code: String!): String!
-    updateBoard(code: String!, board: BoardInput!): Board!
+    deleteBoard(id: ID!): String!
+    updateBoard(id: ID!, board: BoardInput!): Board!
 `;
