@@ -8,7 +8,7 @@ type Board {
     description: String
     group: [ID]
     user_id: ID
-    archived: Boolean
+    archived: Boolean = false
     create_at: Date
     update_at: Date
 }
@@ -16,7 +16,7 @@ type Board {
 input BoardInput {
     name: String!
     description: String!
-    archived : Boolean | false
+    archived : Boolean
     group: [ID!]
     user_id: ID!
 }`;
