@@ -5,12 +5,12 @@ scalar String
 type List {
     id: Int!
     nombre: String!
-    archivado: String!
+    archivado: Boolean!
     tablero: String!
 }
 input ListInput {
     nombre: String
-    archivado: String
+    archivado: Boolean
     tablero: String
 }`;
 
