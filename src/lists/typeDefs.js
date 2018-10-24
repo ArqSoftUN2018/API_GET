@@ -1,16 +1,15 @@
 export const listsTypeDef = `
 
-scalar String
-
 type List {
     id: Int!
     nombre: String!
     archivado: Boolean!
     tablero: String!
 }
+
 input ListInput {
     nombre: String
-    archivado: Boolean
+    archivado: Boolean @default(value: false)
     tablero: String
 }`;
 
