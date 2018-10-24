@@ -11,7 +11,7 @@ const resolvers = {
 			generalRequest(`${URL}/${id}`, 'GET'),
 	},
 	Mutation: {
-		createList: (_, { List }) =>
+		createList: (_, { list }) =>
 			generalRequest(`${URL}`, 'POST', list),
 		updateList: (_, { id, list }) =>
 			generalRequest(`${URL}/${id}`, 'PUT', list),
