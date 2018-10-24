@@ -7,16 +7,16 @@ const resolvers = {
 	Query: {
 		allLists: (_) =>
 			getRequest(URL, ''),
-		listByCode: (_, { code }) =>
-			generalRequest(`${URL}/${code}`, 'GET'),
+		listByCode: (_, { id }) =>
+			generalRequest(`${URL}/${id}`, 'GET'),
 	},
 	Mutation: {
 		createList: (_, { list }) =>
 			generalRequest(`${URL}`, 'POST', list),
-		updateList: (_, { code, list }) =>
-			generalRequest(`${URL}/${code}`, 'PUT', list),
-		deleteList: (_, { code }) =>
-			generalRequest(`${URL}/${code}`, 'DELETE')
+		updateList: (_, { id, list }) =>
+			generalRequest(`${URL}/${id}`, 'PUT', list),
+		deleteList: (_, { id }) =>
+			generalRequest(`${URL}/${id}`, 'DELETE')
 	}
 };
 
