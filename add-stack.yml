@@ -22,3 +22,5 @@ services:
       STATISTICS_ENTRY: 'statistics-ms/resources/statistics'
     ports:
       - 5000:5000
+
+2E-unaldo-api-gateway

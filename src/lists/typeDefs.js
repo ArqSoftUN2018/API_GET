@@ -20,7 +20,7 @@ export const listsQueries = `
 `;
 
 export const listsMutations = `
-    createList(list: ListInput!): List!
+    createList(List: ListInput!): List!
     deleteList(id: Int!): Int
     updateList(id: Int!, list: ListInput!): List!
 `;

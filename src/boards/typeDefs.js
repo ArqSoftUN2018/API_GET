@@ -3,7 +3,7 @@ export const boardsTypeDef = `
 scalar Date
 
 type Board {
-    board_id: ID !
+    _id: ID !
     name: String !
     description: String
     group: [ID]
