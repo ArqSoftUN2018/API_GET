@@ -11,10 +11,10 @@ const resolvers = {
 			generalRequest(`${URL}/${id}`, 'GET'),
 	},
 	Mutation: {
-		createList: (_, { list }) =>
-			generalRequest(`${URL}`, 'POST', list),
+		createList: (_, { List }) =>
+			generalRequest(`${URL}`, 'POST', List),
 		updateList: (_, { id, list }) =>
-			generalRequest(`${URL}/${id}`, 'PUT', list),
+			generalRequest(`${URL}/${id}`, 'PUT', List),
 		deleteList: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'DELETE')
 	}
