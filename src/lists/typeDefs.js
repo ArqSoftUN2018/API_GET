@@ -9,10 +9,9 @@ type List {
     tablero: String!
 }
 input ListInput {
-    id: Int
-    nombre: String!
-    archivado: String!
-    tablero: String!
+    nombre: String
+    archivado: String
+    tablero: String
 }`;
 
 export const listsQueries = `
