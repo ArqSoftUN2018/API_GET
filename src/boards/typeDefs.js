@@ -8,7 +8,7 @@ type Board {
     description: String
     group: [ID]
     user_id: ID !
-    archived: Boolean!  @default(value: 0)
+    archived: Boolean!  @default(value: false)
     create_at: Date
     update_at: Date
 }

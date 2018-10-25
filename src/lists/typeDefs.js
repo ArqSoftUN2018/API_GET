@@ -1,16 +1,15 @@
 export const listsTypeDef = `
 
-scalar String
-
 type List {
     id: Int!
     nombre: String!
     archivado: Boolean!
     tablero: String!
 }
+
 input ListInput {
     nombre: String
-    archivado: Boolean
+    archivado: Boolean @default(value: false)
     tablero: String
 }`;
 
@@ -20,7 +19,7 @@ export const listsQueries = `
 `;
 
 export const listsMutations = `
-    createList(List: ListInput!): List!
+    createList(list: ListInput!): String!
     deleteList(id: Int!): Int
     updateList(id: Int!, list: ListInput!): List!
 `;
