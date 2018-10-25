@@ -1,3 +1,7 @@
+//esto lo hice para poder solo copiar y pegar cada que se enecesite subir el api gateway
+
+2E-unaldo-api-gateway
+
 version: '2'
 services:
   unaldo-api:
@@ -22,5 +26,3 @@ services:
       STATISTICS_ENTRY: 'statistics-ms/resources/statistics'
     ports:
       - 5000:5000
-
-2E-unaldo-api-gateway
