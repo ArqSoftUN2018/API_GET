@@ -2,15 +2,15 @@ export const listsTypeDef = `
 
 type List {
     id: Int!
-    nombre: String!
-    archivado: Boolean!
-    tablero: String!
+    name: String!
+    archived: Boolean!
+    board: String!
 }
 
 input ListInput {
-    nombre: String
-    archivado: Boolean @default(value: false)
-    tablero: String
+    name: String
+    archived: Boolean @default(value: false)
+    board: String
 }`;
 
 export const listsQueries = `
