@@ -11,9 +11,12 @@ import { formatError } from 'graphql';
  */
 export async function generalRequest(url, method, body, fullResponse) {
 	const parameters = {
-		method,
+    method,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
 		uri: encodeURI(url),
-		body
+		body: JSON.stringify(body)
   };
   console.log(parameters);
 	if (process.env.SHOW_URLS) {
