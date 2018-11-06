@@ -13,9 +13,7 @@ export async function generalRequest(url, method, body, fullResponse) {
 	const parameters = {
 		method,
 		uri: encodeURI(url),
-		body,
-		json: true,
-		resolveWithFullResponse: fullResponse
+		body
   };
   console.log(parameters);
 	if (process.env.SHOW_URLS) {

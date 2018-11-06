@@ -14,7 +14,7 @@ input ListInput {
 }`;
 
 export const listsQueries = `
-    allLists: [List]!
+    allLists: [List]
     listByCode(id: Int!): List!
 `;
 
