@@ -16,7 +16,8 @@ export async function generalRequest(url, method, body, fullResponse) {
 		body,
 		json: true,
 		resolveWithFullResponse: fullResponse
-	};
+  };
+  console.log(parameters);
 	if (process.env.SHOW_URLS) {
 		// eslint-disable-next-line
 		console.log(url);
@@ -24,7 +25,9 @@ export async function generalRequest(url, method, body, fullResponse) {
 	}
 
 	try {
-		return await request(parameters);
+    var buffer = await request(parameters);
+    console.log(buffer);
+		return buffer;
 	} catch (err) {
 		return err;
 	}
