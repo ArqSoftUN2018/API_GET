@@ -26,7 +26,9 @@ export async function generalRequest(url, method, body, fullResponse) {
 	}
 
 	try {
-    var buffer = await request(parameters);
+    var buffer = await request.post({
+      uri: encodeURI(url)
+    });
     console.log(buffer);
 		return buffer;
 	} catch (err) {
