@@ -5,12 +5,12 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		allLists: (_) =>
-			getRequest(URL, ''),
 		listByCode: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
 	},
 	Mutation: {
+    allLists: (_) =>
+			getRequest(URL, ''),
 		createList: (_, { list }) =>
 			generalRequest(`${URL}`, 'POST', list),
 		updateList: (_, { id, list }) =>
