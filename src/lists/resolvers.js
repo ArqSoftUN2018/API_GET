@@ -8,7 +8,7 @@ const resolvers = {
 		allLists: (_) =>
 			getRequest(URL, ''),
 		listByCode: (_, { id }) =>
-			generalRequest(`${URL}/${id}`, 'GET'),
+			generalRequest(`${URL}/${id}`, 'GET')
 	},
 	Mutation: {
 		createList: (_, { list }) =>
