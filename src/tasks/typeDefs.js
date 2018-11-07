@@ -1,14 +1,32 @@
 export const tasksTypeDef = `
 type Task {
     code: Int!
+    userid: Int!
     name: String!
-    archivado: String!
+    archived: Boolean!
+    completed:Boolean!
+    group1: Int!
+    board: Int!
     description: String!
+    created: String!
+    updated: String!
+    dead: String!
+    group2:[Int]
+
 }
 input TaskInput {
-    name: String!
-    archivado: String!
-    description: String!
+  code: Int!
+  userid: Int!
+  name: String!
+  archived: Boolean!
+  completed:Boolean!
+  group1: Int!
+  board: Int!
+  description: String!
+  created: String!
+  updated: String!
+  dead: String!
+  group2:[Int]
 }`;
 
 export const tasksQueries = `
