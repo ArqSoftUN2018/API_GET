@@ -11,14 +11,12 @@ import { formatError } from 'graphql';
  */
 export async function generalRequest(url, method, body, fullResponse) {
 	const parameters = {
-    method,
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
+		method,
 		uri: encodeURI(url),
-		body: JSON.stringify(body)
-  };
-  console.log(parameters);
+		body,
+		json: true,
+		resolveWithFullResponse: fullResponse
+	};
 	if (process.env.SHOW_URLS) {
 		// eslint-disable-next-line
 		console.log(url);
@@ -26,11 +24,7 @@ export async function generalRequest(url, method, body, fullResponse) {
 	}
 
 	try {
-    var buffer = await request.post({
-      uri: encodeURI(url)
-    });
-    console.log(buffer);
-		return buffer;
+		return await request(parameters);
 	} catch (err) {
 		return err;
 	}
