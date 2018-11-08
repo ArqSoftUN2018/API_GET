@@ -11,7 +11,7 @@ services:
       BOARDS_URL: '35.231.164.83'
       BOARDS_PORT: '3001'
       BOARDS_ENTRY: 'boards-ms/resources/boards'
-      LISTS_URL: '35.231.164.83'
+      LISTS_URL: '192.168.99.101'
       LISTS_PORT: '3002'
       LISTS_ENTRY: 'lists-ms/resources/lists'
       TASKS_URL: '35.231.164.83'

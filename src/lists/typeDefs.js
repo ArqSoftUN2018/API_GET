@@ -15,7 +15,8 @@ input ListInput {
 
 export const listsQueries = `
     allLists: [List]
-    listByCode(id: Int!): List!
+    listById(id: Int!): List!
+    listFromBoard(board: String!): List!
 `;
 
 export const listsMutations = `
