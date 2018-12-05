@@ -5,11 +5,11 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeSchemas } from './utilities';
 
 
-//import {
-//	usersMutations,
-//	usersQueries,
-//	usersTypeDef
-//} from './users/typeDefs';
+import {
+	usersMutations,
+	usersQueries,
+	usersTypeDef
+} from './users/typeDefs';
 
 import {
 	boardsMutations,
@@ -48,21 +48,21 @@ import statisticsResolvers from './statistics/resolvers';
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-//		usersTypeDef,
+		usersTypeDef,
 		boardsTypeDef,
 		listsTypeDef,
 		tasksTypeDef,
 //		statisticsTypeDef,
 	],
 	[
-//		usersQueries,
+		usersQueries,
 		boardsQueries,
 		listsQueries,
 		tasksQueries,
 //		statisticsQueries
 	],
 	[
-//		usersMutations,
+   	usersMutations,
 		boardsMutations,
 		listsMutations,
 		tasksMutations,

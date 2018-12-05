@@ -1,37 +1,48 @@
 export const usersTypeDef = `
 type User {
-    id: Int!
-    email: String!
-    provider: String!
+    id: String!
     name: String!
-    username: String!
+    email: String!
+    avatar: String!
+    password: String!
 }
 
-input userInput {
+type Userinfo {
+    id: String!
+    name: String!
+    email: String!
+    avatar: String!
+}
+
+type Token{
+    token: String!
+}
+
+input UserInput {
+    name: String!
+    email: String!
+    avatar: String!
+    password: String!
+}
+
+input DataInput {
     email: String!
     password: String!
 }
-input Headers {
+input TokenData{
     token: String!
-    client: String!
-    uid: String!
-}
-type userData {
-    id: Int!
-    email: String!
-    name: String!
-    username: String!
-    image: String
-    token: String!
-    type: String!
-    client: String!
 }
 `;
 
 export const usersQueries = `
-    validateToken(headers: Headers!): userData!
+    allUsers: [User]!
+    userById(id: String!): User!
+    userToken(user: DataInput): Token!
+    userInfo(token: TokenData): Userinfo!
 `;
 
 export const usersMutations = `
-    createuser(user: userInput!): userData!
+    createUser(user: UserInput!): User!
+    deleteUser(id: String!): Int
+    updateUser(id: String!, user: UserInput!): User!
 `;
