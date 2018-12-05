@@ -75,7 +75,7 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-//		usersResolvers,
+  	usersResolvers,
 		boardsResolvers,
 		listsResolvers,
 		tasksResolvers,
