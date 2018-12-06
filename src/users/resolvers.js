@@ -1,4 +1,4 @@
-import { generalRequest, getRequest} from '../utilities';
+import { generalRequest, getRequest, generalRequest1 } from '../utilities';
 import { url, port, entryPoint } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
@@ -10,7 +10,9 @@ const resolvers = {
 		userById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
 		userToken: (_, { user }) =>
-			generalRequest(`http://${url}:${port}/get-token`, 'POST', user)
+			generalRequest(`http://${url}:${port}/get-token`, 'POST', user),
+		userInfo: (_,{ token }) =>
+		    generalRequest1(`http://${url}:${port}/user`, 'GET',_,token.token)
 	},
 	Mutation: {
 		createUser: (_, { user }) =>
