@@ -86,7 +86,11 @@ export function getRequest(url, path, parameters) {
 	const queryUrl = addParams(`${url}/${path}`, parameters);
 	return generalRequest(queryUrl, 'GET');
 }
-
+export function getRequest1(url, path, parameters) {
+	//const queryUrl = addParams(`${url}/${path}`, parameters);
+	const queryUrl = addParams(`${url}`, parameters);
+	return generalRequest(queryUrl, 'GET');
+}
 /**
  * Merge the schemas in order to avoid conflicts
  * @param {Array<string>} typeDefs

@@ -1,4 +1,4 @@
-import { generalRequest, getRequest, generalRequest1 } from '../utilities';
+import { generalRequest, getRequest, generalRequest1 ,getRequest1} from '../utilities';
 import { url, port, entryPoint } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
@@ -6,7 +6,7 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 const resolvers = {
 	Query: {
 		allUsers: (_) =>
-			getRequest(`${URL}`, 'GET'),
+			getRequest1(`${URL}`, 'GET'),
 		userById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
 		userToken: (_, { user }) =>
