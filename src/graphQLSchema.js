@@ -1,7 +1,6 @@
 import merge from 'lodash.merge';
 import GraphQLJSON from 'graphql-type-json';
 import { makeExecutableSchema } from 'graphql-tools';
-
 import { mergeSchemas } from './utilities';
 
 
@@ -48,6 +47,7 @@ import statisticsResolvers from './statistics/resolvers';
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
+		'scalar Upload',
 		usersTypeDef,
 		boardsTypeDef,
 		listsTypeDef,

@@ -6,7 +6,7 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 const resolvers = {
 	Query: {
 		allUsers: (_) =>
-			getRequest1(`${URL}`, 'GET'),
+			getRequest(`${URL}`, 'GET'),
 		userById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
 		userToken: (_, { user }) =>
