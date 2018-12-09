@@ -5,10 +5,9 @@ import { mergeSchemas } from './utilities';
 
 
 import {
-	usersMutations,
-	usersQueries,
-	usersTypeDef
-} from './users/typeDefs';
+  authMutations,
+  authTypeDef
+} from './auth/typeDefs';
 
 import {
 	boardsMutations,
@@ -37,7 +36,7 @@ import {
 
 
 
-import usersResolvers from './users/resolvers';
+import authResolvers from './auth/resolvers';
 import boardsResolvers from './boards/resolvers';
 import listsResolvers from './lists/resolvers';
 import tasksResolvers from './tasks/resolvers';
@@ -48,24 +47,23 @@ const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		'scalar Upload',
-		usersTypeDef,
 		boardsTypeDef,
 		listsTypeDef,
-		tasksTypeDef,
+		authTypeDef,
+		tasksTypeDef
 //		statisticsTypeDef,
 	],
 	[
-		usersQueries,
 		boardsQueries,
 		listsQueries,
-		tasksQueries,
+		tasksQueries
 //		statisticsQueries
 	],
 	[
-   	usersMutations,
 		boardsMutations,
 		listsMutations,
 		tasksMutations,
+		authMutations
 //		statisticsMutations
 	]
 );
@@ -79,6 +77,7 @@ export default makeExecutableSchema({
 		boardsResolvers,
 		listsResolvers,
 		tasksResolvers,
+		authResolvers
 //		statisticsResolvers,
 	)
 });
