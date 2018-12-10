@@ -21,12 +21,17 @@ import {
 	listsTypeDef
 } from './lists/typeDefs';
 
-
 import {
 	tasksMutations,
 	tasksQueries,
 	tasksTypeDef
 } from './tasks/typeDefs';
+
+import {
+	sessionsMutations,
+	sessionQueries,
+	sessionsTypeDef
+} from './users/typeDefs';
 
 //import {
 //	statisticsMutations,
@@ -40,6 +45,7 @@ import authResolvers from './auth/resolvers';
 import boardsResolvers from './boards/resolvers';
 import listsResolvers from './lists/resolvers';
 import tasksResolvers from './tasks/resolvers';
+import sessionsResolvers from './users/resolvers';
 import statisticsResolvers from './statistics/resolvers';
 
 // merge the typeDefs
@@ -50,20 +56,23 @@ const mergedTypeDefs = mergeSchemas(
 		boardsTypeDef,
 		listsTypeDef,
 		authTypeDef,
-		tasksTypeDef
+    tasksTypeDef,
+    sessionsTypeDef
 //		statisticsTypeDef,
 	],
 	[
 		boardsQueries,
 		listsQueries,
-		tasksQueries
+    tasksQueries,
+    sessionQueries
 //		statisticsQueries
 	],
 	[
 		boardsMutations,
 		listsMutations,
 		tasksMutations,
-		authMutations
+    authMutations,
+    sessionsMutations
 //		statisticsMutations
 	]
 );
@@ -77,7 +86,8 @@ export default makeExecutableSchema({
 		boardsResolvers,
 		listsResolvers,
 		tasksResolvers,
-		authResolvers
+    authResolvers,
+    sessionsResolvers
 //		statisticsResolvers,
 	)
 });

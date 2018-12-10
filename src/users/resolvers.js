@@ -1,27 +1,48 @@
-import { generalRequest, getRequest, generalRequest1 ,getRequest1} from '../utilities';
-import { url, port, entryPoint } from './server';
+import { generalRequest, getRequest } from '../utilities';
+import { url, port, entryPoint} from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		allUsers: (_) =>
-			getRequest(`${URL}`, 'GET'),
-		userById: (_, { id }) =>
-			generalRequest(`${URL}/${id}`, 'GET'),
-		userToken: (_, { user }) =>
-			generalRequest(`http://${url}:${port}/get-token`, 'POST', user),
-		userInfo: (_,{ token }) =>
-		    generalRequest1(`http://${url}:${port}/user`, 'GET',_,token.token)
+		validateToken: (_, { headers }) => {
+			return new Promise((resolve, reject) => {
+				generalRequest(`${URL}/validate_token`, 'GET', {}, true, {
+					client: headers.client,
+					uid: headers.uid,
+					access_token: headers.token
+				}).then((response) => {
+					let user = response.body.data
+					user['token'] = response.headers['access-token']
+					user['type'] = response.headers['token-type']
+					user['client'] = response.headers['client']
+					delete user['provider']
+					delete user['uid']
+					delete user['allow_password_change']
+					resolve(user)
+				})
+			})
+		}
 	},
+
 	Mutation: {
-		createUser: (_, { user }) =>
-			generalRequest(`${URL}`, 'POST', user),
-		updateUser: (_, { id, user }) =>
-			generalRequest(`${URL}/${id}`, 'PUT', user),
-		deleteUser: (_, { id }) =>
-			generalRequest(`${URL}/${id}`, 'DELETE'),
+		createSession: (_, { session }) => {
+			return new Promise((resolve, reject)=>{
+				generalRequest(`${URL}/sign_in`, 'POST', session, true).then(
+					(response) => {
+						console.log("Server response => ", response);
+						let user = response.body.data
+						user['token'] = response.headers['access-token']
+						user['uid'] = response.headers['uid']
+						user['type'] = response.headers['token-type']
+						user['client'] = response.headers['client']
+						resolve(user);
+					}
+				)
+			})
+		}
 	}
 };
+
 
 export default resolvers;
