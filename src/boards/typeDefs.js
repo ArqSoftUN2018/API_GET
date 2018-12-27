@@ -7,7 +7,7 @@ type Board {
     name: String !
     description: String
     group: [ID]
-    user_id: ID !
+    owner_code: ID !
     archived: Boolean!  @default(value: false)
     create_at: Date
     update_at: Date
@@ -18,7 +18,7 @@ input BoardInput {
     description: String!
     archived : Boolean
     group: [ID!]
-    user_id: ID!
+    owner_code: ID!
 }`;
 
 export const boardsQueries = `
